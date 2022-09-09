@@ -1,0 +1,35 @@
+specVersion: 0.0.4
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: IpsumOFLOREMNFT
+    network: mainnet
+    source:
+      address: "0x3b0e857289E1c429bA8155C601C5D7B571d31641"
+      abi: IpsumOFLOREMNFT
+      startBlock: 15402297 
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - Ipsum
+        - addIpsum
+        - flapNSFW
+        - updataIpsum
+        - IpsumAdded
+        - IpsumUpdated
+        - IpsumUpdatednsfw
+        - OwnershipTransferred
+      abis:
+        - name: IpsumOFLOREMNFT
+          file: ./abis/IpsumOFLOREMNFT.json
+      eventHandlers:
+        - event: IpsumAdded(address,uint256,uint256)
+          handler: handleIpsumAdded
+        - event: IpsumUpdated(address,uint256,uint256)
+          handler: handleIpsumUpdated
+        - event: IpsumUpdatednsfw(address,uint256,uint256)
+          handler: handleIpsumUpdatednsfw
+      file: ./src/ipsum-ofloremnft.ts

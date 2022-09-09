@@ -1,0 +1,29 @@
+type Ipsum @entity {
+  id: ID!
+  tokenId: BigInt! 
+  ipsumIdx: BigInt! 
+
+  ipsumMetadataURI: String!
+  nsfw:Boolean
+  ownerflip:Boolean
+  adminflip:Boolean
+  creator: Bytes!
+  createdAtTimeStamp:BigInt!
+}
+
+type addIpsum @entity {
+  id: ID!
+  tokenId: BigInt! 
+  ipsumIdx: BigInt! 
+  creator: Bytes!
+  createdAtTimeStamp: BigInt!
+}
+
+type flapNSFW @entity {
+  id: ID!
+  tokenId: BigInt! 
+  ipsumIdx: BigInt! 
+  modifier: Bytes! 
+}
+
+
